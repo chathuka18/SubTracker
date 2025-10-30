@@ -13,6 +13,7 @@ struct ContentView: View {
     @Environment(\.modelContext) private var context
     
     @State private var apiSubs: [Subscription] = []
+    @State private var showAddSheet = false
     
     private var allSubscriptions: [Subscription] {
         let combined = localSubs + apiSubs
@@ -37,6 +38,14 @@ struct ContentView: View {
                         .foregroundColor(.gray)
                     
                     Spacer()
+                    
+                    Button(action: {
+                        showAddSheet = true
+                    }) {
+                        Image(systemName: "plus")
+                            .foregroundColor(.gray)
+                            .font(.title2)
+                    }
                     
                     
                 }
@@ -90,6 +99,9 @@ struct ContentView: View {
                 }
             }
         }
+        .sheet(isPresented: $showAddSheet) {
+            AddSubView()
+        }
         
         .onAppear {
             fetchSubscriptions()
@@ -97,7 +109,7 @@ struct ContentView: View {
     }
     
     func fetchSubscriptions() {
-        guard let url = URL(string: "https://api.jsonbin.io/v3/qs/69031a16d0ea881f40c6b07e") else {
+        guard let url = URL(string: "https://api.jsonbin.io/v3/qs/69037379ae596e708f380d6a") else {
             print("Invalid URL")
             return
         }
