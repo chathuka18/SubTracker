@@ -15,13 +15,15 @@ class Subscription: Identifiable {
     var category: String
     var cost: Double
     var billingPlan: String   // "Monthly" or "Yearly"
+    var billingDate: Date
     
-    init(id: UUID, name: String, category: String, cost: Double, billingPlan: String) {
+    init(id: UUID, name: String, category: String, cost: Double, billingPlan: String, billingDate: Date) {
             self.id = UUID()
             self.name = name
             self.category = category
             self.cost = cost
             self.billingPlan = billingPlan
+            self.billingDate = billingDate
             
         }
 }
