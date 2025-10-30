@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct SubTrackerApp: App {
@@ -13,5 +14,6 @@ struct SubTrackerApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: Subscription.self)
     }
 }
