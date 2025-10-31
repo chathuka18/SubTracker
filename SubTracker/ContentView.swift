@@ -119,7 +119,7 @@ struct ContentView: View {
     }
     
     func fetchSubscriptions() {
-        guard let url = URL(string: "https://api.jsonbin.io/v3/qs/69037379ae596e708f380d6a") else {
+        guard let url = URL(string: "https://api.jsonbin.io/v3/qs/690434daae596e708f393462") else {
             print("Invalid URL")
             return
         }

@@ -42,10 +42,17 @@ struct SubscriptionRow: View {
     
     func logo(for name: String) -> UIImage {
         switch name.lowercased() {
-        case "netflix": return UIImage(named: "netflix") ?? UIImage(systemName: "n.square")!
-        case "spotify": return UIImage(named: "spotify") ?? UIImage(systemName: "music.note")!
-        case "icloud", "apple icloud": return UIImage(named: "icloud") ?? UIImage(systemName: "cloud")!
+        case "netflix": return UIImage(named: "netflix") ?? UIImage(systemName: "app.fill")!
+        case "spotify": return UIImage(named: "spotify") ?? UIImage(systemName: "app.fill")!
+        case "icloud", "apple icloud": return UIImage(named: "icloud") ?? UIImage(systemName: "app.fill")!
         case "chatgpt": return UIImage(named: "chatgpt") ?? UIImage(systemName: "app.fill")!
+        case "apple music": return UIImage(named: "applemusic") ?? UIImage(systemName: "app.fill")!
+        case "apple tv": return UIImage(named: "appletv") ?? UIImage(systemName: "app.fill")!
+        case "claudeai": return UIImage(named: "claudeai") ?? UIImage(systemName: "app.fill")!
+        case "disneyplus": return UIImage(named: "disneyplus") ?? UIImage(systemName: "app.fill")!
+        case "grammerly": return UIImage(named: "grammerly") ?? UIImage(systemName: "app.fill")!
+        case "primevideo": return UIImage(named: "primevideo") ?? UIImage(systemName: "app.fill")!
+        case "youtube": return UIImage(named: "youtube") ?? UIImage(systemName: "app.fill")!
         default: return UIImage(systemName: "app.fill")!
         }
     }
