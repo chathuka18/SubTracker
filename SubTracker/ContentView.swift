@@ -26,47 +26,47 @@ struct ContentView: View {
     }
     
     var body: some View {
-        ZStack {
-            Color.black.ignoresSafeArea()
-            
-            VStack(alignment: .leading) {
+        NavigationStack {
+            ZStack {
+                Color.black.ignoresSafeArea()
                 
-                HStack {
-                    Text("Subscriptions")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundColor(.gray)
+                VStack(alignment: .leading) {
                     
-                    Spacer()
-                    
-                    Button(action: {
-                        showAddSheet = true
-                    }) {
-                        Image(systemName: "plus")
+                    HStack {
+                        Text("Subscriptions")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
                             .foregroundColor(.gray)
-                            .font(.title2)
-                    }
-                    
-                    
-                }
-                .padding(.horizontal)
-                .padding(.top)
-                
-                Divider().background(Color.gray)
-                
-                if allSubscriptions.isEmpty {
-                    VStack(spacing: 10) {
+                        
                         Spacer()
-                        Image(systemName: "tray")
-                            .font(.system(size: 40))
-                            .foregroundColor(.gray)
-                        Text("No Subscriptions Yet")
-                            .foregroundColor(.gray)
-                            .font(.headline)
-                        Spacer()
+                        
+                        Button(action: {
+                            showAddSheet = true
+                        }) {
+                            Image(systemName: "plus")
+                                .foregroundColor(.gray)
+                                .font(.title2)
+                        }
+                        
+                        
                     }
-                } else {
-                    NavigationStack {
+                    .padding(.horizontal)
+                    .padding(.top)
+                    
+                    Divider().background(Color.gray)
+                    
+                    if allSubscriptions.isEmpty {
+                        VStack(spacing: 10) {
+                            Spacer()
+                            Image(systemName: "tray")
+                                .font(.system(size: 40))
+                                .foregroundColor(.gray)
+                            Text("No Subscriptions Yet")
+                                .foregroundColor(.gray)
+                                .font(.headline)
+                            Spacer()
+                        }
+                    } else {
                         ScrollView {
                             VStack(spacing: 16) {
                                 ForEach(allSubscriptions) { sub in
@@ -77,35 +77,30 @@ struct ContentView: View {
                             }
                             .padding(.horizontal)
                         }
-                
-                        .navigationBarTitleDisplayMode(.inline)
-                        
-                        .background(Color.black)
                     }
-                    .background(Color.black)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                }
-                
-                Spacer()
-                
-                VStack {
-                    Divider().background(Color.gray)
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text("Estimated Total (Per Month)")
-                                .font(.caption)
-                                .foregroundColor(.gray)
-                            Text("LKR \(totalCost(), specifier: "%.2f")")
-                                .font(.title3)
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
+
+                    
+                    Spacer()
+                    
+                    VStack {
+                        Divider().background(Color.gray)
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text("Estimated Total (Per Month)")
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
+                                Text("LKR \(totalCost(), specifier: "%.2f")")
+                                    .font(.title3)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                            }
+                            Spacer()
                         }
-                        Spacer()
+                        .padding()
+                        .background(Color(.systemGray6).opacity(0.2))
+                        .cornerRadius(12)
+                        .padding(.horizontal)
                     }
-                    .padding()
-                    .background(Color(.systemGray6).opacity(0.2))
-                    .cornerRadius(12)
-                    .padding(.horizontal)
                 }
             }
         }
