@@ -119,15 +119,10 @@ struct UpdateSubView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: { dismiss() }) {
-                        Image(systemName: "xmark")
-                            .foregroundColor(.gray)
-                    }
-                }
+                
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Save") {
+                    Button("Update") {
                         try?
                         context.save()
                         dismiss()
