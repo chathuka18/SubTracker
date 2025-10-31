@@ -66,14 +66,24 @@ struct ContentView: View {
                         Spacer()
                     }
                 } else {
-                    ScrollView {
-                        VStack(spacing: 16) {
-                            ForEach(allSubscriptions) { sub in
-                                SubscriptionRow(subscription: sub)
+                    NavigationStack {
+                        ScrollView {
+                            VStack(spacing: 16) {
+                                ForEach(allSubscriptions) { sub in
+                                    NavigationLink(destination: UpdateSubView(subscription: sub)) {
+                                        SubscriptionRow(subscription: sub)
+                                    }
+                                }
                             }
+                            .padding(.horizontal)
                         }
-                        .padding(.horizontal)
+                
+                        .navigationBarTitleDisplayMode(.inline)
+                        
+                        .background(Color.black)
                     }
+                    .background(Color.black)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
                 
                 Spacer()
